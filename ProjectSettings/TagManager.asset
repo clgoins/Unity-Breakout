@@ -9,6 +9,7 @@ TagManager:
   - block
   - topWall
   - sideWall
+  - theBadWall
   layers:
   - Default
   - TransparentFX

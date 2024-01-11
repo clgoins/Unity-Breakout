@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour
     {
         livesRemaining = 3;
         score = 0;
-        stageNumber = 1;
+        stageNumber = 0;
         Block.OnBlockDestroyed += blockDestroyed;
         Ball.OnLostBall += lostBall;
         rowCount = 4;
         colCount = 12;
         blockFrequency = initialBlockFrequency;
 
-        createStage();
+        startNewLevel();
     }
 
 
@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
 
     public void lostBall()
     {
-
+        livesRemaining--;
+        Instantiate(ballTemplate, Vector3.zero, Quaternion.identity);
     }
 }

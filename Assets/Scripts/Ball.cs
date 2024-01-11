@@ -64,17 +64,41 @@ public class Ball : MonoBehaviour
             velocity.y = -velocity.y;
         }
 
+
         // Collision with side wall should reverse x velocity but maintain same y velocity
         if (collision.collider.tag == "sideWall")
         {
             velocity.x = -velocity.x;
         }
 
+
         // Collision with top/bottom of block should reverse y velocity, collision with sides of block should reverse x velocity
         if(collision.collider.tag == "block")
         {
+            // speed the ball up a bit for each block destroyed
             ballSpeed += ballSpeedIncrement;
+
+            // get the position and size of the block
+            Transform block = collision.collider.transform;
+            Vector3 blockSize = block.localScale;
+
+            // if ball is between top & bottom of block, it must be on the side, so reverse x velocity
+            if (transform.position.y <= block.position.y && transform.position.y > block.position.y - blockSize.y)
+            {
+                velocity.x = -velocity.x;
+            }
+
+            // otherwise the ball is approaching from the top or bottom, so reverse y velocity
+            else
+            {
+                velocity.y = -velocity.y;
+            }
         }
+
+
+        // If the ball makes it past the paddle to the bottom of the screen, tell the game manager a ball was lost
+        if (collision.collider.tag == "theBadWall")
+            OnLostBall.Invoke();
 
     }
 
