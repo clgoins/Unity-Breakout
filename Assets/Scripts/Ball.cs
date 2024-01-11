@@ -10,6 +10,8 @@ public class Ball : MonoBehaviour
     [SerializeField] private float spread;              // how wide of an angle the balls new velocity can be on contact with the paddle or a block
     [SerializeField] private float ballSpeedIncrement;  // how much the speed increases when breaking a block
 
+    public static event System.Action OnLostBall;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,8 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.collider.tag == "paddle" || collision.collider.tag == "block")
+        // Collision with paddle should result in ball moving UP and either left or right depending on which side of the paddle it hits.
+        if (collision.collider.tag == "paddle")
         {
             Transform paddle = collision.collider.transform;
 
@@ -51,21 +54,26 @@ public class Ball : MonoBehaviour
 
             // normalize the new velocity so speed remains constant
             velocity = newVelocity.normalized;
-
-
-            // increase the speed of the ball on contact with a block
-            if (collision.collider.tag == "block")
-                ballSpeed += ballSpeedIncrement;
+                
         }
 
+
+        // Collision with top wall should result in ball moving DOWN with same x velocity
         if (collision.collider.tag == "topWall")
         {
             velocity.y = -velocity.y;
         }
 
+        // Collision with side wall should reverse x velocity but maintain same y velocity
         if (collision.collider.tag == "sideWall")
         {
             velocity.x = -velocity.x;
+        }
+
+        // Collision with top/bottom of block should reverse y velocity, collision with sides of block should reverse x velocity
+        if(collision.collider.tag == "block")
+        {
+            ballSpeed += ballSpeedIncrement;
         }
 
     }

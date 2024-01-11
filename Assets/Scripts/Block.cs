@@ -5,12 +5,14 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
 
+    public static event System.Action OnBlockDestroyed;
+
     // Start is called before the first frame update
     void Start()
     {
         //Get a random value between 0 and 5 inclusive and pass it to the block materials color property
         float colorValue = Mathf.Floor(Random.Range(0, 5.99f));
-        GetComponent<SpriteRenderer>().material.SetFloat("_Color", colorValue);
+        GetComponentInChildren<SpriteRenderer>().material.SetFloat("_Color", colorValue);
         
     }
 
@@ -18,7 +20,7 @@ public class Block : MonoBehaviour
     {
         if (collision.collider.tag == "ball")
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().blockDestroyed();
+            OnBlockDestroyed.Invoke();
             GameObject.Destroy(gameObject);
         }
     }
