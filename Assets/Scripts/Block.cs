@@ -6,6 +6,8 @@ public class Block : MonoBehaviour
 {
 
     public static event System.Action OnBlockDestroyed;
+    [SerializeField] float powerUpChance = 1;
+    [SerializeField] GameObject powerupTemplate;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,10 @@ public class Block : MonoBehaviour
     {
         if (collision.collider.tag == "ball")
         {
+            float spawnPowerup = Random.Range(0.0f, 1.0f);
+            if (spawnPowerup < powerUpChance)
+                Instantiate(powerupTemplate, transform.position, Quaternion.identity);
+
             OnBlockDestroyed.Invoke();
             GameObject.Destroy(gameObject);
         }

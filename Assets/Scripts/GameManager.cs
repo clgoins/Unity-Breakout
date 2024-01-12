@@ -12,12 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector2 blockGenStartPosition;
     [SerializeField] private int stageNumber;
     [SerializeField] private int livesRemaining;
-    [SerializeField] private GameObject blockTemplate;  // Prefab referring to block object for duplication
-    [SerializeField] private GameObject ballTemplate;   // Prefab referring to a ball object for duplication
+    [SerializeField] public GameObject blockTemplate;  // Prefab referring to block object for duplication
+    [SerializeField] public GameObject ballTemplate;   // Prefab referring to a ball object for duplication
     [SerializeField] private const float playFieldWidth = 22; // Width of the play field in unity units
     [SerializeField] private const float playFieldHeight = 3; // Height of the play field in unity units
     [SerializeField] private float initialBlockFrequency = 0.7f; // How likely a block is to spawn in each cell
     private float blockFrequency;
+    [SerializeField] private string powerupSpritePath;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         rowCount = 4;
         colCount = 12;
         blockFrequency = initialBlockFrequency;
+
 
         startNewLevel();
     }
@@ -127,4 +129,11 @@ public class GameManager : MonoBehaviour
         livesRemaining--;
         Instantiate(ballTemplate, Vector3.zero, Quaternion.identity);
     }
+
+    public void addLives(int lives)
+    {
+        livesRemaining += lives;
+    }
+
+
 }

@@ -98,9 +98,17 @@ public class Ball : MonoBehaviour
 
         // If the ball makes it past the paddle to the bottom of the screen, tell the game manager a ball was lost
         if (collision.collider.tag == "theBadWall")
+        {
             OnLostBall.Invoke();
+            Destroy(gameObject);
+        }
 
     }
 
 
+    // Used by powerups when instantiating new balls
+    public void setDirection(Vector2 newDirection)
+    {
+        velocity = newDirection.normalized;
+    }
 }

@@ -6,7 +6,7 @@ public class PaddleControl : MonoBehaviour
     private Vector2 velocity;
     private float desiredVelocity;
     [SerializeField] private float acceleration;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] public float moveSpeed;
     private Rigidbody2D rb;
     public Vector2 debugRBVelocity;    
 
@@ -57,20 +57,6 @@ public class PaddleControl : MonoBehaviour
     {
         desiredVelocity = inputValue.Get<float>();
 
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + transform.up);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (collision.collider.tag == "ball")
-        {
-
-        }
     }
 
 }

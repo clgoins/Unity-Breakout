@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6309015228716021655}
   - component: {fileID: 5143702639912761425}
   - component: {fileID: 5614646804556281056}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Block
   m_TagString: block
   m_Icon: {fileID: 0}
@@ -72,6 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed7cb8a6ed069042bd5242af78fef72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpChance: 0.5
+  powerupTemplate: {fileID: 5235243563401637625, guid: 9a991cfb76e735a4d8fb97eed3ad9a41, type: 3}
 --- !u!1 &8522822108143638603
 GameObject:
   m_ObjectHideFlags: 0
