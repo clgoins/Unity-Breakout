@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private const float playFieldHeight = 3; // Height of the play field in unity units
     [SerializeField] private float initialBlockFrequency = 0.7f; // How likely a block is to spawn in each cell
     private float blockFrequency;
-    [SerializeField] private string powerupSpritePath;
+    private List<Powerup> activePowerups;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         rowCount = 4;
         colCount = 12;
         blockFrequency = initialBlockFrequency;
-
+        activePowerups = new List<Powerup>();
 
         startNewLevel();
     }
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void blockDestroyed()
+    public void blockDestroyed(Vector2 position)
     {
         // Event gets called before block object is destroyed, so be sure to subtract 1 from total here
         int remainingBlocks = GameObject.FindGameObjectsWithTag("block").Length - 1;
@@ -126,8 +126,15 @@ public class GameManager : MonoBehaviour
 
     public void lostBall()
     {
-        livesRemaining--;
-        Instantiate(ballTemplate, Vector3.zero, Quaternion.identity);
+        // Check if there are any balls remaining
+        int remainingBalls = GameObject.FindGameObjectsWithTag("ball").Length - 1;
+
+        if (remainingBalls <= 0)
+        {
+            livesRemaining--;
+            deactivateAllPowerups();
+            Instantiate(ballTemplate, Vector3.zero, Quaternion.identity);
+        }
     }
 
     public void addLives(int lives)
@@ -135,5 +142,18 @@ public class GameManager : MonoBehaviour
         livesRemaining += lives;
     }
 
+    private void deactivateAllPowerups()
+    {
+        for (int i = 0; i < activePowerups.Count; i++)
+        {
+            activePowerups[i].deactivate();
+        }
 
+        activePowerups = new List<Powerup>();
+    }
+
+    public void addPowerup(Powerup powerup)
+    {
+        activePowerups.Add(powerup);
+    }
 }
