@@ -489,14 +489,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  rowCount: 0
-  colCount: 0
-  blockGenStartPosition: {x: -11, y: 3.476659}
-  stageNumber: 1
   livesRemaining: 0
-  blockTemplate: {fileID: 1142185753719275577, guid: 78cbb68fa37b9e747a484117c24e5ef3, type: 3}
+  stageNumber: 1
   ballTemplate: {fileID: 442450097552763465, guid: 53fafdd5047a8c5488ec3c78f1c9b463, type: 3}
-  initialBlockFrequency: 0.6
+  blockTemplate: {fileID: 1142185753719275577, guid: 78cbb68fa37b9e747a484117c24e5ef3, type: 3}
+  levelGen:
+    rowCount: 4
+    colCount: 12
+    blockGenStartPosition: {x: -11, y: 3.475}
+    initialBlockFrequency: 0.7
+    levelToIncreaseDifficulty: 4
 --- !u!4 &241321810
 Transform:
   m_ObjectHideFlags: 0
