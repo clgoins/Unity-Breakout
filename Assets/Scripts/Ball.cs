@@ -12,8 +12,9 @@ public class Ball : MonoBehaviour
 
     public static event System.Action OnLostBall;
 
-    // Start is called before the first frame update
-    void Start()
+
+    // Awake is called before the first frame update
+    void Awake()
     {
         velocity = Vector2.one.normalized;
         rb = GetComponent<Rigidbody2D>();
@@ -94,15 +95,16 @@ public class Ball : MonoBehaviour
                 velocity.y = -velocity.y;
             }
         }
+    }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         // If the ball makes it past the paddle to the bottom of the screen, tell the game manager a ball was lost
-        if (collision.collider.tag == "theBadWall")
+        if (collision.tag == "theBadWall")
         {
             OnLostBall.Invoke();
             Destroy(gameObject);
         }
-
     }
 
 

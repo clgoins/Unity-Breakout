@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3299917287809927765}
   - component: {fileID: 3299917287809927766}
   - component: {fileID: 3299917287809927763}
-  - component: {fileID: 7386328595659794062}
   - component: {fileID: 3299917287809927770}
+  - component: {fileID: 6780264234968612088}
   m_Layer: 0
   m_Name: 3 Ball
   m_TagString: Untagged
@@ -113,24 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7386328595659794062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299917287809927752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33a7c57f86e05e440a54f1af9c93b7e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallSpeed: 1
-  image: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
-  powerupName: 
-  probability: 0
-  multiplier: 0
 --- !u!114 &3299917287809927770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,9 +125,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a7c57f86e05e440a54f1af9c93b7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1
+  fallSpeed: 0.1
   image: {fileID: 2800000, guid: 835e4cd61deca73468c479ecdece9d02, type: 3}
   color: {r: 0, g: 0.044709206, b: 1, a: 0}
   powerupName: 3 Ball
   probability: 10
   multiplier: 3
+--- !u!50 &6780264234968612088
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299917287809927752}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

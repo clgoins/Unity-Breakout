@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e78dc15fd9956459fe7456281ad2d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 3
+  ballSpeed: 4
   spread: 2
   ballSpeedIncrement: 0.05

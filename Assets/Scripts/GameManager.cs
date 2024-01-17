@@ -6,18 +6,21 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int score;
-    [SerializeField] private int rowCount;
-    [SerializeField] private int colCount;
-    private bool increaseRows = false;
-    [SerializeField] private Vector2 blockGenStartPosition;
-    [SerializeField] private int stageNumber;
     [SerializeField] private int livesRemaining;
+    [SerializeField] private int stageNumber;
+
+    [SerializeField] private int rowCount;                      //number of rows of blocks
+    [SerializeField] private int colCount;                      // number of columns of blocks
+    private bool increaseRows = false;                          // if true, # of rows will increase, if false # of columns will increase (happens every 4 levels)
+    [SerializeField] private Vector2 blockGenStartPosition;     // Starting position for block gen code
+    [SerializeField] private const float playFieldWidth = 22;   // Width of the play field in unity units
+    [SerializeField] private const float playFieldHeight = 3;   // Height of the play field in unity units
+    [SerializeField] private float initialBlockFrequency = 0.7f;// Default probability a block is to spawn in each cell
+    private float blockFrequency;                               // Current probability a block is to spawn in each cell
+
     [SerializeField] public GameObject blockTemplate;  // Prefab referring to block object for duplication
     [SerializeField] public GameObject ballTemplate;   // Prefab referring to a ball object for duplication
-    [SerializeField] private const float playFieldWidth = 22; // Width of the play field in unity units
-    [SerializeField] private const float playFieldHeight = 3; // Height of the play field in unity units
-    [SerializeField] private float initialBlockFrequency = 0.7f; // How likely a block is to spawn in each cell
-    private float blockFrequency;
+
     private List<Powerup> activePowerups;
 
     void Start()
@@ -38,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     /*
      Divides play field into cells. Cell size is based on desired # of blocks.
-    Top left corner is populated with blocks randomly, based on blockFrequency.
+    Top left quadrant is populated with blocks randomly, based on blockFrequency.
     Other 3 corners are then mirrored to create a symmetric play field.
      */
     void createStage()

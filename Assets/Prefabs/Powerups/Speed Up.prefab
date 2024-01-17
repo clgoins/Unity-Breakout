@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8712290089408862988}
   - component: {fileID: 8712290089408862985}
   - component: {fileID: 8712290089408862984}
+  - component: {fileID: 6633190970347466557}
   m_Layer: 0
   m_Name: Speed Up
   m_TagString: Untagged
@@ -124,10 +125,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0be643ba3ae0294fad1adbe45bcebb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1
+  fallSpeed: 0.1
   image: {fileID: 2800000, guid: 0a8dfa1f8fb3cb4449c40f6196d38e76, type: 3}
   color: {r: 0.9811321, g: 0.8789099, b: 0.2998932, a: 0}
   powerupName: Speed Up
   probability: 30
   speed: 3
   maxSpeed: 30
+--- !u!50 &6633190970347466557
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712290089408862994}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

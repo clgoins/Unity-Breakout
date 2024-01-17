@@ -10,8 +10,6 @@ public class Block : MonoBehaviour
     private Vector2 centerPoint;    // Blocks origin is in top right corner; this vector represents the center of the block
 
 
-    [SerializeField] float powerUpChance = 1;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -1083,7 +1083,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1821,7 +1821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 442450097552763476, guid: 53fafdd5047a8c5488ec3c78f1c9b463, type: 3}
       propertyPath: ballSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 442450097552763476, guid: 53fafdd5047a8c5488ec3c78f1c9b463, type: 3}
       propertyPath: ballSpeedIncrement
@@ -1837,7 +1837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 442450097552763479, guid: 53fafdd5047a8c5488ec3c78f1c9b463, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6201217
+      value: -3.91
       objectReference: {fileID: 0}
     - target: {fileID: 442450097552763479, guid: 53fafdd5047a8c5488ec3c78f1c9b463, type: 3}
       propertyPath: m_LocalPosition.z
