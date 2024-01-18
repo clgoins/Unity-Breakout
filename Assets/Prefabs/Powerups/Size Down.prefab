@@ -128,8 +128,7 @@ MonoBehaviour:
   fallSpeed: 0.1
   image: {fileID: 2800000, guid: 41f5dad697d4ac44fafd7739c958383e, type: 3}
   color: {r: 0.9528302, g: 0.41708788, b: 0.41708788, a: 0}
-  powerupName: Size Down
-  probability: 10
+  probability: 20
   size: 0.25
   minSize: 0.5
 --- !u!50 &583275408959153695

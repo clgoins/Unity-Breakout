@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public GameObject ballTemplate;   // Prefab referring to a ball object for duplication
     [SerializeField] public GameObject blockTemplate;  // Prefab referring to block object for duplication
-    
+
+    [SerializeField] private Canvas HUD;
+
     [SerializeField] private LevelGenerator levelGen;
 
     private List<Powerup> activePowerups;
@@ -85,4 +87,5 @@ public class GameManager : MonoBehaviour
     {
         activePowerups.Add(powerup);
     }
+
 }

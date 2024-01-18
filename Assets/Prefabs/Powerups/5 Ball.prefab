@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1563c8d5f87bf014a8630ff926b03326, type: 2}
+  - {fileID: 2100000, guid: 3761dca0b711c1349838f8638b1dac56, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,8 +128,7 @@ MonoBehaviour:
   fallSpeed: 0.1
   image: {fileID: 2800000, guid: f9b881fc2739d474bb0a614287571968, type: 3}
   color: {r: 1, g: 0.4890789, b: 0, a: 0}
-  powerupName: 5 Ball
-  probability: 100
+  probability: 2
   multiplier: 5
 --- !u!50 &4649951540996145511
 Rigidbody2D:

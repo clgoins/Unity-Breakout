@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ExtraLife : Powerup
 {
-
+    [SerializeField] private int lifeCount;
 
     public override void activate()
     {
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.addLives(1);
+        gameManager.addLives(lifeCount);
     }
 
     public override void deactivate()

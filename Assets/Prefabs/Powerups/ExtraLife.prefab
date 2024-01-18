@@ -128,8 +128,8 @@ MonoBehaviour:
   fallSpeed: 0.1
   image: {fileID: 2800000, guid: 6b60f3b8cf1f43343978285d40f032df, type: 3}
   color: {r: 0.053542133, g: 0.8867924, b: 0.4139794, a: 0}
-  powerupName: Extra Life
   probability: 10
+  lifeCount: 1
 --- !u!50 &6916640479118511666
 Rigidbody2D:
   serializedVersion: 4
