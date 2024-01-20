@@ -12,6 +12,7 @@ public abstract class Powerup : MonoBehaviour
     [SerializeField] protected Color color;
     [SerializeField] public int probability;
     protected GameManager gameManager;
+    [SerializeField] protected int scoreValue;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public abstract class Powerup : MonoBehaviour
         // On collision with paddle, activate powerup and destroy object
         if (other.tag == "paddle")
         {
+            gameManager.addScore(scoreValue);
             activate();
             Destroy(gameObject);
         }

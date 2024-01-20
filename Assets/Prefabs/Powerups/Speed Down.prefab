@@ -129,6 +129,7 @@ MonoBehaviour:
   image: {fileID: 2800000, guid: 6c1a0e33919bd0a46ba16c60d8e2d7c2, type: 3}
   color: {r: 0.69803923, g: 0.25098044, b: 0.37924525, a: 0}
   probability: 25
+  scoreValue: 500
   speed: 2
   minSpeed: 5
 --- !u!50 &5854903443293196850

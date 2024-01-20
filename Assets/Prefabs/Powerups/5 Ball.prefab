@@ -129,6 +129,7 @@ MonoBehaviour:
   image: {fileID: 2800000, guid: f9b881fc2739d474bb0a614287571968, type: 3}
   color: {r: 1, g: 0.4890789, b: 0, a: 0}
   probability: 2
+  scoreValue: 5000
   multiplier: 5
 --- !u!50 &4649951540996145511
 Rigidbody2D:
