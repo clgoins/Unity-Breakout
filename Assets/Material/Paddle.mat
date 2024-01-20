@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Background
-  m_Shader: {fileID: -6465566751694194690, guid: d4fa752121b62ee49b4ec6c6cd233eb2, type: 3}
+  m_Name: Paddle
+  m_Shader: {fileID: -6465566751694194690, guid: b8efe810e27e65042a1e834601402edb, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -50,14 +50,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Color_Intensity: 0.73
     - _EnableExternalAlpha: 0
-    - _Scroll_Speed: 0.01
-    - _Value: 0
+    - _Outline_Thickness: 0.52
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_1: {r: 1, g: 0.9694437, b: 0, a: 0}
-    - _Color_2: {r: 0, g: 0.1047177, b: 1, a: 0}
+    - _Color: {r: 1, g: 0.9471181, b: 0.82452834, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Scroll_Dir: {r: 1, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &3607639394114087153
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
