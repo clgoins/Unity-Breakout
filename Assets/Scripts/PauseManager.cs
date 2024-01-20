@@ -7,11 +7,13 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private Canvas pauseScreen;
     private bool gamePaused;
+    private GameManager gameManager;
 
     private void Start()
     {
         gamePaused = false;
         pauseScreen.enabled = false;
+        gameManager = GetComponent<GameManager>();
     }
 
     private void Update()
@@ -46,6 +48,7 @@ public class PauseManager : MonoBehaviour
 
     public void quitToMenu()
     {
+        gameManager.removeEventListeners();
         SceneManager.LoadScene("Menu");
     }
 
