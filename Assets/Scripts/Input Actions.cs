@@ -53,15 +53,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Any Key"",
-                    ""type"": ""Button"",
-                    ""id"": ""259886b7-140b-4ec7-9c3c-8664268146dc"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,17 +198,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7a69cb61-8515-4b41-8349-2fb8e983ba32"",
-                    ""path"": ""<Keyboard>/anyKey"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Any Key"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,7 +209,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Main_Move = m_Main.FindAction("Move", throwIfNotFound: true);
         m_Main_Pause = m_Main.FindAction("Pause", throwIfNotFound: true);
         m_Main_Navigate = m_Main.FindAction("Navigate", throwIfNotFound: true);
-        m_Main_AnyKey = m_Main.FindAction("Any Key", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -292,7 +271,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Move;
     private readonly InputAction m_Main_Pause;
     private readonly InputAction m_Main_Navigate;
-    private readonly InputAction m_Main_AnyKey;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -300,7 +278,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Main_Move;
         public InputAction @Pause => m_Wrapper.m_Main_Pause;
         public InputAction @Navigate => m_Wrapper.m_Main_Navigate;
-        public InputAction @AnyKey => m_Wrapper.m_Main_AnyKey;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -319,9 +296,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Navigate.started -= m_Wrapper.m_MainActionsCallbackInterface.OnNavigate;
                 @Navigate.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnNavigate;
                 @Navigate.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnNavigate;
-                @AnyKey.started -= m_Wrapper.m_MainActionsCallbackInterface.OnAnyKey;
-                @AnyKey.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnAnyKey;
-                @AnyKey.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnAnyKey;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -335,9 +309,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Navigate.started += instance.OnNavigate;
                 @Navigate.performed += instance.OnNavigate;
                 @Navigate.canceled += instance.OnNavigate;
-                @AnyKey.started += instance.OnAnyKey;
-                @AnyKey.performed += instance.OnAnyKey;
-                @AnyKey.canceled += instance.OnAnyKey;
             }
         }
     }
@@ -347,6 +318,5 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
-        void OnAnyKey(InputAction.CallbackContext context);
     }
 }

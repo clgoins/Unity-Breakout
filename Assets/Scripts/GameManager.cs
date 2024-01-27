@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class GameManager : MonoBehaviour
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
 
             hudControl.updateLives(livesRemaining);
             deactivateAllPowerups();
-            Instantiate(ballTemplate, Vector3.zero, Quaternion.identity);
+            Instantiate(ballTemplate);
             waitForKey();
         }
     }
@@ -163,9 +164,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // Event listener for when any keyboard key is pressed
-    public void OnAnyKey()
-    { 
+    // Event listener for when the player tries to move the paddle
+    public void OnMove()
+    {
         if (waitingForKey)
         {
             waitingForKey = false;
